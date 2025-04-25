@@ -1,3 +1,4 @@
+
 # TimeTracker API
 
 TimeTracker is a client-server application for tracking work time.
@@ -27,3 +28,4 @@ Base URL: `http://localhost:5033/api/TimeTracker`
 
 1. Import the `TimeTracker.postman_collection.json` collection
 2. Test the API with the predefined requests
+
