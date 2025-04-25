@@ -1,0 +1,120 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/TimeTracker.sln",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run-server",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/TimeTracker.Server/TimeTracker.Server.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "run-client",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/TimeTracker.Client/TimeTracker.Client.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true, 
+                "clear": false
+            }
+        },
+        {
+            "label": "generate-reports",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/TimeTracker.Client/TimeTracker.Client.csproj",
+                "--",
+                "generate-reports"
+            ],
+            "problemMatcher": "$msCompile",
+            "dependsOn": "build"
+        },
+        {
+            "label": "ef-migrations-add",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "ef",
+                "migrations",
+                "add",
+                "${input:migrationName}",
+                "--project",
+                "${workspaceFolder}/TimeTracker.Server/TimeTracker.Server.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "ef-migrations-update",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "ef",
+                "database",
+                "update",
+                "--project",
+                "${workspaceFolder}/TimeTracker.Server/TimeTracker.Server.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "restore",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "restore",
+                "${workspaceFolder}/TimeTracker.sln"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "migrationName",
+            "description": "Migration Name",
+            "default": "InitialMigration",
+            "type": "promptString"
+        }
+    ]
+}

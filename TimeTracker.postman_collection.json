@@ -1,0 +1,290 @@
+{
+    "info": {
+      "_postman_id": "b5f9a7e1-e9c4-4f1a-8a3b-d5e7d8a9c3b2",
+      "name": "TimeTracker API",
+      "description": "Collection for testing the TimeTracker API endpoints",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Sessions",
+        "item": [
+          {
+            "name": "Start Session",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/sessions/start",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "sessions",
+                  "start"
+                ]
+              },
+              "description": "Starts a new work session"
+            },
+            "response": []
+          },
+          {
+            "name": "Stop Active Session",
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/sessions/stop-active",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "sessions",
+                  "stop-active"
+                ]
+              },
+              "description": "Stops the currently active work session"
+            },
+            "response": []
+          },
+          {
+            "name": "Stop Session by ID",
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/sessions/1/stop",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "sessions",
+                  "1",
+                  "stop"
+                ]
+              },
+              "description": "Stops a specific work session by ID"
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Session",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/sessions/1",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "sessions",
+                  "1"
+                ]
+              },
+              "description": "Deletes a work session by ID"
+            },
+            "response": []
+          },
+          {
+            "name": "Get Active Session",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/sessions/active",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "sessions",
+                  "active"
+                ]
+              },
+              "description": "Gets the currently active work session"
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Sessions",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/sessions",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "sessions"
+                ]
+              },
+              "description": "Gets all work sessions"
+            },
+            "response": []
+          }
+        ],
+        "description": "Endpoints for managing work sessions"
+      },
+      {
+        "name": "Reports",
+        "item": [
+          {
+            "name": "Daily Report",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/reports/daily",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "reports",
+                  "daily"
+                ],
+                "query": [
+                  {
+                    "key": "date",
+                    "value": "2023-06-15",
+                    "disabled": true
+                  }
+                ]
+              },
+              "description": "Gets a daily report for a specific date"
+            },
+            "response": []
+          },
+          {
+            "name": "Weekly Report",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/reports/weekly",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "reports",
+                  "weekly"
+                ],
+                "query": [
+                  {
+                    "key": "startDate",
+                    "value": "2023-06-12",
+                    "disabled": true
+                  }
+                ]
+              },
+              "description": "Gets a weekly report starting from a specific date"
+            },
+            "response": []
+          },
+          {
+            "name": "Monthly Report",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/reports/monthly",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "reports",
+                  "monthly"
+                ],
+                "query": [
+                  {
+                    "key": "year",
+                    "value": "2023",
+                    "disabled": true
+                  },
+                  {
+                    "key": "month",
+                    "value": "6",
+                    "disabled": true
+                  }
+                ]
+              },
+              "description": "Gets a monthly report for a specific year and month"
+            },
+            "response": []
+          },
+          {
+            "name": "Daily Breakdown",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:5033/api/TimeTracker/reports/breakdown",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5033",
+                "path": [
+                  "api",
+                  "TimeTracker",
+                  "reports",
+                  "breakdown"
+                ],
+                "query": [
+                  {
+                    "key": "startDate",
+                    "value": "2023-06-12",
+                    "disabled": true
+                  },
+                  {
+                    "key": "endDate",
+                    "value": "2023-06-18",
+                    "disabled": true
+                  }
+                ]
+              },
+              "description": "Gets a daily breakdown for a date range"
+            },
+            "response": []
+          }
+        ],
+        "description": "Endpoints for generating reports"
+      }
+    ]
+  }

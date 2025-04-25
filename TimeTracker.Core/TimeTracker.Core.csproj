@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <Authors>TimeTracker Team</Authors>
+    <Company>TimeTracker</Company>
+    <Description>Core library for TimeTracker application.</Description>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo TimeTracker.Core PreBuild event started at %time%" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo TimeTracker.Core PostBuild event completed at %time%" />
+  </Target>
+
+</Project>
